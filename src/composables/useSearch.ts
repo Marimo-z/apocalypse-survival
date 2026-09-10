@@ -1,4 +1,4 @@
-import { atlasRegions } from '@/content/atlas'
+import { atlasCountries } from '@/content/atlas'
 import { articles } from '@/content/articles'
 import { categories } from '@/content/categories'
 import { scenarios } from '@/content/scenarios'
@@ -47,13 +47,13 @@ const corpus: SearchHit[] = [
     haystack: plain(`${category.blurb} ${category.en}`),
     href: `/field/${category.id}`,
   })),
-  ...atlasRegions.map((region) => ({
+  ...atlasCountries.map((country) => ({
     kind: 'region' as const,
-    id: region.id,
-    title: region.name,
-    excerpt: region.intel[0] ?? region.biome,
-    haystack: plain(`${region.biome} ${region.en} ${region.intel.join(' ')} ${region.hazards.join(' ')}`),
-    href: `/atlas/${region.id}`,
+    id: country.iso3,
+    title: country.nameZh,
+    excerpt: `${country.mapName} · 人均淡水 ${country.waterM3 ?? '—'} m³`,
+    haystack: plain(`${country.nameZh} ${country.mapName} ${country.iso3} 淡水 地震 气旋`),
+    href: `/atlas/${country.iso3}`,
   })),
 ]
 

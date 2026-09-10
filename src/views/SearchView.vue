@@ -17,7 +17,7 @@ const kindLabel = {
   article: '篇目',
   scenario: '情景',
   category: '板块',
-  region: '图区',
+  region: '国家',
 } as const
 </script>
 

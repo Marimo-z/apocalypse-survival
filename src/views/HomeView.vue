@@ -2,9 +2,22 @@
 import FieldFigure from '@/components/figures/FieldFigure.vue'
 import FieldCard from '@/components/ui/FieldCard.vue'
 import Stamp from '@/components/ui/Stamp.vue'
+import { falkenmark, getAtlasCountry } from '@/content/atlas'
 import { articles } from '@/content/articles'
 import { categories } from '@/content/categories'
 import { scenarios } from '@/content/scenarios'
+
+const atlasSpots = (['QAT', 'ISL', 'JPN', 'CHL'] as const).flatMap((iso3) => {
+  const country = getAtlasCountry(iso3)
+  if (!country) return []
+  const notes: Record<(typeof iso3), string> = {
+    QAT: `人均淡水 ${country.waterM3?.toLocaleString()} m³ · ${falkenmark(country.waterM3).label}`,
+    ISL: `人均淡水 ${country.waterM3?.toLocaleString()} m³`,
+    JPN: '地震高危带 · 热带气旋影响区',
+    CHL: '环太平洋地震带',
+  }
+  return [{ iso3, name: country.nameZh, note: notes[iso3] }]
+})
 
 const featured = articles.slice(0, 4)
 const rules = [
@@ -125,9 +138,9 @@ const rules = [
       <div class="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 md:grid-cols-2 md:px-6">
         <div>
           <p class="font-mono text-[10px] tracking-[0.2em] text-rust uppercase">Field atlas</p>
-          <h2 class="mt-2 font-display text-4xl font-extrabold tracking-wide uppercase">全球资源图</h2>
+          <h2 class="mt-2 font-display text-4xl font-extrabold tracking-wide uppercase">全球地理图</h2>
           <p class="mt-4 max-w-md text-muted">
-            按战区查看淡水、燃料、食物与庇护材料，以及地震、风暴、干旱等灾害带。
+            ECharts 世界地图上的色块来自世界银行淡水指标，以及 USGS / WMO 公开灾害带，不是虚构评分。
           </p>
           <RouterLink
             to="/atlas"
@@ -138,36 +151,14 @@ const rules = [
         </div>
         <div class="grid grid-cols-2 gap-3">
           <RouterLink
-            to="/atlas/east-asia"
+            v-for="spot in atlasSpots"
+            :key="spot.iso3"
+            :to="`/atlas/${spot.iso3}`"
             class="cursor-pointer border border-line bg-paper p-4 transition-colors duration-200 hover:border-rust"
           >
-            <p class="font-mono text-[10px] tracking-[0.14em] text-muted uppercase">EA-01</p>
-            <p class="mt-1 font-display text-2xl font-extrabold uppercase">东亚</p>
-            <p class="mt-2 text-sm text-muted">地震 · 台风 · 城市停水</p>
-          </RouterLink>
-          <RouterLink
-            to="/atlas/middle-east"
-            class="cursor-pointer border border-line bg-paper p-4 transition-colors duration-200 hover:border-rust"
-          >
-            <p class="font-mono text-[10px] tracking-[0.14em] text-muted uppercase">ME-05</p>
-            <p class="mt-1 font-display text-2xl font-extrabold uppercase">中东</p>
-            <p class="mt-2 text-sm text-muted">淡水极缺 · 热浪</p>
-          </RouterLink>
-          <RouterLink
-            to="/atlas/arctic"
-            class="cursor-pointer border border-line bg-paper p-4 transition-colors duration-200 hover:border-rust"
-          >
-            <p class="font-mono text-[10px] tracking-[0.14em] text-muted uppercase">AR-11</p>
-            <p class="mt-1 font-display text-2xl font-extrabold uppercase">北极圈</p>
-            <p class="mt-2 text-sm text-muted">燃料昂贵 · 失温</p>
-          </RouterLink>
-          <RouterLink
-            to="/atlas/oceania"
-            class="cursor-pointer border border-line bg-paper p-4 transition-colors duration-200 hover:border-rust"
-          >
-            <p class="font-mono text-[10px] tracking-[0.14em] text-muted uppercase">OC-10</p>
-            <p class="mt-1 font-display text-2xl font-extrabold uppercase">澳洲</p>
-            <p class="mt-2 text-sm text-muted">内陆干旱 · 风暴潮</p>
+            <p class="font-mono text-[10px] tracking-[0.14em] text-muted uppercase">{{ spot.iso3 }}</p>
+            <p class="mt-1 font-display text-2xl font-extrabold uppercase">{{ spot.name }}</p>
+            <p class="mt-2 text-sm text-muted">{{ spot.note }}</p>
           </RouterLink>
         </div>
       </div>
