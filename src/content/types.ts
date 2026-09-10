@@ -11,6 +11,7 @@ export type FigureId =
   | 'blackout'
   | 'mind'
   | 'hygiene'
+  | 'radio'
 
 export interface Category {
   id: string

@@ -186,7 +186,7 @@ defineProps<{
       </svg>
 
       <svg
-        v-else
+        v-else-if="name === 'hygiene'"
         viewBox="0 0 520 220"
         class="mx-auto h-auto w-full max-w-xl text-ink"
         role="img"
@@ -201,6 +201,26 @@ defineProps<{
         <text x="48" y="140" font-size="13">肥皂 20 秒</text>
         <text x="208" y="140" font-size="13">远离水源厨房</text>
         <text x="368" y="140" font-size="13">密封防虫</text>
+      </svg>
+
+      <svg
+        v-else
+        viewBox="0 0 520 220"
+        class="mx-auto h-auto w-full max-w-xl text-ink"
+        role="img"
+        aria-label="无线电：先收听，再短呼叫，天线竖直"
+      >
+        <rect x="70" y="70" width="70" height="110" fill="none" stroke="currentColor" stroke-width="1.6" />
+        <rect x="88" y="88" width="34" height="22" fill="var(--olive)" opacity="0.35" />
+        <line x1="105" y1="70" x2="105" y2="28" stroke="var(--rust)" stroke-width="2" />
+        <circle cx="105" cy="24" r="4" fill="var(--rust)" />
+        <path d="M150 50 C210 20, 250 20, 310 50" fill="none" stroke="var(--ember)" stroke-width="1.6" />
+        <path d="M160 72 C220 48, 260 48, 320 72" fill="none" stroke="var(--ember)" stroke-width="1.6" />
+        <path d="M170 94 C230 76, 270 76, 330 94" fill="none" stroke="currentColor" stroke-width="1.2" />
+        <text x="200" y="40" font-family="IBM Plex Mono" font-size="11" fill="var(--rust)">LISTEN</text>
+        <text x="360" y="88" font-family="IBM Plex Mono" font-size="11">1 收听</text>
+        <text x="360" y="118" font-family="IBM Plex Mono" font-size="11">2 短呼</text>
+        <text x="360" y="148" font-family="IBM Plex Mono" font-size="11">3 天线竖直</text>
       </svg>
     </div>
     <figcaption class="border-t border-line px-4 py-3 text-sm text-muted">

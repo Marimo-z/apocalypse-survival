@@ -46,6 +46,8 @@ export const fieldcraftArticles: Article[] = [
   <div class="kicker">停留的勇气</div>
   <p>如果你已发出位置、有水源、有庇护，待在原地常常是最优解。移动的唯一正当理由是：当前位置马上会变得更危险，或你有明确、短距离、可逆的目标。</p>
 </div>
+
+基站失效后的收听与对讲，见 [应急收音机](/article/radio-listen) 与 [对讲与呼叫纪律](/article/radio-talk)。
 `,
   },
   {

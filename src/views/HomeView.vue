@@ -7,7 +7,6 @@ import { categories } from '@/content/categories'
 import { scenarios } from '@/content/scenarios'
 
 const featured = articles.slice(0, 4)
-const spotlight = categories.slice(0, 6)
 const rules = [
   { t: '3 分钟', d: '空气 / 冰水' },
   { t: '3 小时', d: '恶劣环境庇护' },
@@ -76,14 +75,14 @@ const rules = [
       <div class="mb-8 flex items-end justify-between gap-4">
         <div>
           <p class="font-mono text-[10px] tracking-[0.2em] text-rust uppercase">Chapters</p>
-          <h2 class="mt-2 font-display text-4xl font-extrabold tracking-wide uppercase">十个板块</h2>
+          <h2 class="mt-2 font-display text-4xl font-extrabold tracking-wide uppercase">{{ categories.length }} 个板块</h2>
         </div>
         <RouterLink to="/field" class="font-mono text-[11px] tracking-[0.14em] text-rust uppercase hover:text-ember">
           全部档案 →
         </RouterLink>
       </div>
       <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-        <FieldCard v-for="category in spotlight" :key="category.id" :code="category.code" :title="category.title"
+        <FieldCard v-for="category in categories" :key="category.id" :code="category.code" :title="category.title"
           :en="category.en" :blurb="category.blurb" :to="`/field/${category.id}`" />
       </div>
     </section>

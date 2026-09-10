@@ -81,4 +81,12 @@ export const categories: Category[] = [
     blurb: '恐慌会耗尽判断。预案、角色、轮休比口号有用。',
     figure: 'mind',
   },
+  {
+    id: 'radio',
+    code: 'FM-11',
+    title: '无线电',
+    en: 'RADIO',
+    blurb: '基站静音之后，收音机和对讲机才是还活着的信道。',
+    figure: 'radio',
+  },
 ]

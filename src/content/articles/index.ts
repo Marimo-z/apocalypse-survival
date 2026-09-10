@@ -2,6 +2,7 @@ import type { Article } from '../types'
 import { fieldcraftArticles } from './fieldcraft'
 import { fundamentalsArticles } from './fundamentals'
 import { medicalArticles } from './medical'
+import { radioArticles } from './radio'
 import { shelterFireArticles } from './shelter-fire'
 import { urbanArticles } from './urban'
 import { waterFoodArticles } from './water-food'
@@ -13,6 +14,7 @@ export const articles: Article[] = [
   ...medicalArticles,
   ...fieldcraftArticles,
   ...urbanArticles,
+  ...radioArticles,
 ]
 
 export function getArticle(slug: string) {

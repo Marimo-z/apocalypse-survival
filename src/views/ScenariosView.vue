@@ -14,7 +14,7 @@ const related = computed(() => articlesBySlugs(current.value.related))
     <p class="font-mono text-[10px] tracking-[0.2em] text-rust uppercase">Scenario deck</p>
     <h1 class="mt-3 font-display text-5xl font-extrabold tracking-wide uppercase">情景预案</h1>
 
-    <div class="mt-8 grid gap-3 md:grid-cols-3 xl:grid-cols-6">
+    <div class="mt-8 grid gap-3 sm:grid-cols-2 md:grid-cols-4">
       <RouterLink
         v-for="item in scenarios"
         :key="item.id"
