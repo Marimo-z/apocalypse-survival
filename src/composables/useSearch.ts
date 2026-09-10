@@ -1,3 +1,4 @@
+import { atlasRegions } from '@/content/atlas'
 import { articles } from '@/content/articles'
 import { categories } from '@/content/categories'
 import { scenarios } from '@/content/scenarios'
@@ -5,7 +6,7 @@ import Fuse from 'fuse.js'
 import { computed } from 'vue'
 
 export interface SearchHit {
-  kind: 'article' | 'scenario' | 'category'
+  kind: 'article' | 'scenario' | 'category' | 'region'
   id: string
   title: string
   excerpt: string
@@ -45,6 +46,14 @@ const corpus: SearchHit[] = [
     excerpt: category.blurb,
     haystack: plain(`${category.blurb} ${category.en}`),
     href: `/field/${category.id}`,
+  })),
+  ...atlasRegions.map((region) => ({
+    kind: 'region' as const,
+    id: region.id,
+    title: region.name,
+    excerpt: region.intel[0] ?? region.biome,
+    haystack: plain(`${region.biome} ${region.en} ${region.intel.join(' ')} ${region.hazards.join(' ')}`),
+    href: `/atlas/${region.id}`,
   })),
 ]
 

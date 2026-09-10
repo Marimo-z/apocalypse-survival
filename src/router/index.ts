@@ -29,6 +29,11 @@ const router = createRouter({
       component: () => import('@/views/ScenariosView.vue'),
     },
     {
+      path: '/atlas/:id?',
+      name: 'atlas',
+      component: () => import('@/views/AtlasView.vue'),
+    },
+    {
       path: '/kit',
       name: 'kit',
       component: () => import('@/views/KitView.vue'),

@@ -11,6 +11,7 @@ const open = ref(false)
 const links = [
   { to: '/field', label: '知识库' },
   { to: '/scenarios', label: '情景' },
+  { to: '/atlas', label: '资源图' },
   { to: '/kit', label: '装备清单' },
   { to: '/about', label: '关于' },
 ]

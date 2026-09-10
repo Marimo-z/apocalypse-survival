@@ -12,6 +12,7 @@
         <div class="mt-3 flex flex-col gap-2 font-mono text-xs uppercase">
           <RouterLink class="text-ink hover:text-rust" to="/field">知识库</RouterLink>
           <RouterLink class="text-ink hover:text-rust" to="/scenarios">情景预案</RouterLink>
+          <RouterLink class="text-ink hover:text-rust" to="/atlas">资源图</RouterLink>
           <RouterLink class="text-ink hover:text-rust" to="/kit">装备清单</RouterLink>
         </div>
       </div>

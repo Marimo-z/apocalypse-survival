@@ -121,6 +121,58 @@ const rules = [
       </div>
     </section>
 
+    <section class="border-t border-line">
+      <div class="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 md:grid-cols-2 md:px-6">
+        <div>
+          <p class="font-mono text-[10px] tracking-[0.2em] text-rust uppercase">Field atlas</p>
+          <h2 class="mt-2 font-display text-4xl font-extrabold tracking-wide uppercase">全球资源图</h2>
+          <p class="mt-4 max-w-md text-muted">
+            按战区查看淡水、燃料、食物与庇护材料，以及地震、风暴、干旱等灾害带。
+          </p>
+          <RouterLink
+            to="/atlas"
+            class="mt-6 inline-flex cursor-pointer border-b border-rust pb-1 font-mono text-[11px] tracking-[0.16em] text-rust uppercase"
+          >
+            打开图板
+          </RouterLink>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <RouterLink
+            to="/atlas/east-asia"
+            class="cursor-pointer border border-line bg-paper p-4 transition-colors duration-200 hover:border-rust"
+          >
+            <p class="font-mono text-[10px] tracking-[0.14em] text-muted uppercase">EA-01</p>
+            <p class="mt-1 font-display text-2xl font-extrabold uppercase">东亚</p>
+            <p class="mt-2 text-sm text-muted">地震 · 台风 · 城市停水</p>
+          </RouterLink>
+          <RouterLink
+            to="/atlas/middle-east"
+            class="cursor-pointer border border-line bg-paper p-4 transition-colors duration-200 hover:border-rust"
+          >
+            <p class="font-mono text-[10px] tracking-[0.14em] text-muted uppercase">ME-05</p>
+            <p class="mt-1 font-display text-2xl font-extrabold uppercase">中东</p>
+            <p class="mt-2 text-sm text-muted">淡水极缺 · 热浪</p>
+          </RouterLink>
+          <RouterLink
+            to="/atlas/arctic"
+            class="cursor-pointer border border-line bg-paper p-4 transition-colors duration-200 hover:border-rust"
+          >
+            <p class="font-mono text-[10px] tracking-[0.14em] text-muted uppercase">AR-11</p>
+            <p class="mt-1 font-display text-2xl font-extrabold uppercase">北极圈</p>
+            <p class="mt-2 text-sm text-muted">燃料昂贵 · 失温</p>
+          </RouterLink>
+          <RouterLink
+            to="/atlas/oceania"
+            class="cursor-pointer border border-line bg-paper p-4 transition-colors duration-200 hover:border-rust"
+          >
+            <p class="font-mono text-[10px] tracking-[0.14em] text-muted uppercase">OC-10</p>
+            <p class="mt-1 font-display text-2xl font-extrabold uppercase">澳洲</p>
+            <p class="mt-2 text-sm text-muted">内陆干旱 · 风暴潮</p>
+          </RouterLink>
+        </div>
+      </div>
+    </section>
+
     <section class="border-t border-line bg-bg-deep">
       <div class="mx-auto max-w-6xl px-4 py-16 md:px-6">
         <div class="mb-8 flex items-end justify-between">
